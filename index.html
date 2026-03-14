@@ -257,36 +257,6 @@ button:disabled {
   background: rgba(0,0,0,0.5);
 }
 
-printBtn.onclick = () => {
-  build(()=>{
-    setTimeout(()=>{
-      // Crear una nueva ventana con solo el canvas convertido en imagen
-      const w = window.open("", "_blank");
-      const imgData = canvas.toDataURL("image/png");
-
-      w.document.write(`
-        <html>
-          <head>
-            <title>Imprimir Foto</title>
-            <style>
-              body { margin:0; display:flex; justify-content:center; align-items:center; }
-              img { width:100%; height:auto; }
-              @page { size: 4in 6in; margin:0; }
-            </style>
-          </head>
-          <body>
-            <img src="${imgData}">
-            <script>
-              window.onload = () => { window.print(); };
-            </script>
-          </body>
-        </html>
-      `);
-      w.document.close();
-    }, 300);
-  });
-};
-
 .watermark-option {
   width: 160px;          /* igual que .thumb */
   height: 50px;          /* igual que .thumb */
