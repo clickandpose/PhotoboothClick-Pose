@@ -258,14 +258,11 @@ button:disabled {
 }
 
 @media print {
-  h1, #layoutSelector, .controls, #preview, #mirrorBox {
-    display: none !important;
-  }
   #resultCanvas {
     display: block !important;
-    width: 4in !important;
-    height: 6in !important;
-    margin: auto;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 auto;
     opacity: 1 !important;
   }
   @page { size: 4in 6in; margin: 0; }
