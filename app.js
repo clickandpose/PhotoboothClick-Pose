@@ -374,8 +374,11 @@ downloadBtn.onclick = () => {
 printBtn.onclick = () => {
   build(()=>{
     setTimeout(()=>{
-      window.print();
-    }, 300); // espera 300ms para que se dibuje todo
+      const link = document.createElement("a");
+      link.download = "foto_final.png"; // nombre del archivo descargado
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }, 300);
   });
 };
   
