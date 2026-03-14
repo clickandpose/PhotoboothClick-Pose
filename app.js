@@ -374,10 +374,17 @@ downloadBtn.onclick = () => {
 printBtn.onclick = () => {
   build(()=>{
     setTimeout(()=>{
-      const link = document.createElement("a");
-      link.download = "foto_final.png"; // nombre del archivo descargado
-      link.href = canvas.toDataURL("image/png");
-      link.click();
+      const imgData = canvas.toDataURL("image/png");
+      const w = window.open("", "_blank");
+      w.document.write(`
+        <html>
+          <head><title>Foto Final</title></head>
+          <body style="margin:0;display:flex;justify-content:center;align-items:center;background:#000;">
+            <img src="${imgData}" style="max-width:100%;height:auto;">
+          </body>
+        </html>
+      `);
+      w.document.close();
     }, 300);
   });
 };
